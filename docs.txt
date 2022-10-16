@@ -1,0 +1,8 @@
+seguinte, eu tenho um XLS com todos artigos que importei na ferramenta
+
+o que tem que ser feito:
+1. selecionar apenas os que estão com "status" = Accepted
+2. baixar o PDF através da página onde tá o artigo, que o endereço tá na coluna "url"
+3. São 3 fontes possíveis: BRAPCI, IEEE e ACM, isso é possível identificar pela coluna "source". Em cada uma delas o PDF é disponibilizado em algum lugar diferente da página. Na BRAPCI não tem que logar, mas no IEEE e ACM sim, espero que tu ainda consiga logar no teu login da UFRGS 😶‍🌫️ se não conseguir, eu tenho acesso a IEEE com o login da UFSM, e a Giliane tem acesso a ACM.
+4. Os PDF's tem que ser baixados e colocados em uma pasta para cada base, BRAPCI, IEEE e ACM, e o nome do arquivo deve ser o título do artigo.
+5. É isso, mete bala, tiamo.
