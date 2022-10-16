@@ -1,11 +1,12 @@
 import pandas as pd
-from urllib.request import urlopen
+from urllib.request import urlopen, urlretrieve
 import os
 
-def acmProcedure(article):
+def acmProcedure(article, dir):
     pass
 
-def brapciProcedure(article):
+def brapciProcedure(article, dir):
+    os.chdir(dir+"/BRAPCI")
     url = article["url"]
     title = article["title"]
     s = "https://brapci.inf.br/index.php/res/download/" #String pattern
@@ -16,22 +17,25 @@ def brapciProcedure(article):
         while(f[i]!= "'"):
             downloadLink+=f[i]
             i+=1
-        print(url)
-        print(downloadLink)
+        urlretrieve(downloadLink,title+".pdf") #MUST TRUNCATE NAME TO FIT IN TITLE + FILTER <sup> tag
+       # print(url)
+       # print(downloadLink)
+    os.chdir(dir)
 
 
-def ieeeProcedure(article):
+def ieeeProcedure(article, dir):
     pass
 
 def main():
+    dir = os.getcwd()
     articles = pd.read_excel("articles.xls")
     for i in articles.index:
         if articles["status"][i] == "Accepted":
             if articles["source"][i][0] == "A":
-                acmProcedure(articles.iloc[i])
+                acmProcedure(articles.iloc[i],dir)
             elif articles["source"][i][0] == "B":
-                brapciProcedure(articles.iloc[i])
+                brapciProcedure(articles.iloc[i],dir)
             elif articles["source"][i][0] == "I":
-                ieeeProcedure(articles.iloc[i])
+                ieeeProcedure(articles.iloc[i],dir)
 
 main()
